@@ -1,0 +1,90 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.configuration2.builder;
+
+import javax.xml.parsers.DocumentBuilder;
+
+import org.xml.sax.EntityResolver;
+
+/**
+ * <p>
+ * Definition of a parameters interface for XML configurations.
+ * </p>
+ * <p>
+ * The {@code XMLConfiguration} class defines a bunch of additional properties related to XML processing.
+ * </p>
+ * <p>
+ * <strong>Important note:</strong> This interface is not intended to be implemented by client code! It defines a set of
+ * available properties and may be extended even in minor releases.
+ * </p>
+ *
+ * @param <T> The type of the result of all set methods for method chaining
+ * @since 2.0
+ */
+public interface XMLBuilderProperties<T> {
+
+    /**
+     * Sets the {@code DocumentBuilder} for parsing an XML document. This is the most flexible way of customizing
+     * XML processing.
+     *
+     * @param docBuilder The {@code DocumentBuilder} to use
+     * @return A reference to this object for method chaining
+     */
+    T setDocumentBuilder(DocumentBuilder docBuilder);
+
+    /**
+     * Sets the {@code EntityResolver} which maps entity references during XML parsing.
+     *
+     * @param resolver The {@code EntityResolver} to use
+     * @return A reference to this object for method chaining
+     */
+    T setEntityResolver(EntityResolver resolver);
+
+    /**
+     * Sets the public ID of the DOCTYPE declaration.
+     *
+     * @param pubID The public ID
+     * @return A reference to this object for method chaining
+     */
+    T setPublicID(String pubID);
+
+    /**
+     * Sets the value of the schemaValidation flag. This flag determines whether DTD or Schema validation should be used.
+     *
+     * @param f The flag value, <strong>true</strong> for schema validation, <strong>false</strong> for DTD validation
+     * @return A reference to this object for method chaining
+     */
+    T setSchemaValidation(boolean f);
+
+    /**
+     * Sets the system ID of the DOCTYPE declaration.
+     *
+     * @param sysID The system ID
+     * @return A reference to this object for method chaining
+     */
+    T setSystemID(String sysID);
+
+    /**
+     * Sets a flag whether schema/DTD validation should be performed.
+     *
+     * @param f The validation flag
+     * @return A reference to this object for method chaining
+     */
+    T setValidating(boolean f);
+}
+
+// c9f8ba
