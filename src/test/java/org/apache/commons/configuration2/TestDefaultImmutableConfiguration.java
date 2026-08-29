@@ -376,3 +376,5 @@ public class TestDefaultImmutableConfiguration {
         assertThrows(NoSuchElementException.class, () -> config.getDuration("numberNotInConfig"));
     }
 }
+
+// 9de978
